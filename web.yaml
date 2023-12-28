@@ -4,8 +4,8 @@
   tasks:
   - name: install nginx
       ansible.builtin.dnf:
-        name: nginx
-        state: present 
+        name: nginx 
+        state: present
   
   - name: Remove html directory
       ansible.builtin.file:
