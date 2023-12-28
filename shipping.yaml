@@ -66,3 +66,12 @@
       ansible.builtin.debug:
         msg: "Schema output {{schema}}" 
 
+    - name: load cities data
+      ansible.builtin.shell: "mysql -h mysql.awsdevops.website -uroot -p{{mysql_password}}  < /app/schema/shipping.sql"
+      when: schema.stdout != "1"
+
+  - name: start and enable shipping
+    ansible.builtin.service:
+      name: shipping
+      state: restarted
+      enabled: yes
