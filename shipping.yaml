@@ -29,8 +29,8 @@
         dest: /app
         remote_src: yes
 
-    - name: Install dependencies
-      ansible.builtin.command: mvn clearn package
+    - name: install dependencies
+      ansible.builtin.command: mvn clean package
       args:
         chdir: /app
       
